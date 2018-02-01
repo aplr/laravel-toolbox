@@ -1,0 +1,34 @@
+{
+    "name": "aplr/toolbox",
+    "description": "Provides a set of convenient tools to use in laravel projects.",
+    "keywords": ["laravel", "toolbox", "utitity", "helpers"],
+    "support": {
+        "issues": "https://gitlab.aplr.me/aplr/laravel-toolbox/issues",
+        "source": "https://gitlab.aplr.me/aplr/laravel-toolbox"
+    },
+    "authors": [
+        {
+            "name": "Andreas Pfurtscheller",
+            "email": "hello@aplr.me"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/database": "5.5.x",
+        "illuminate/support": "5.5.x"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aplr\\Toolbox\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
