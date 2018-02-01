@@ -1,5 +1,5 @@
 {
-    "name": "aplr/toolbox",
+    "name": "aplr/laravel-toolbox",
     "description": "Provides a set of convenient tools to use in laravel projects.",
     "keywords": ["laravel", "toolbox", "utitity", "helpers"],
     "support": {
