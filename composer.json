@@ -26,6 +26,16 @@
             "Aplr\\Toolbox\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aplr\\Toolbox\\ServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Aplr\\Toolbox\\Facade"
+            }
+        }
+    },
     "config": {
         "sort-packages": true
     },
