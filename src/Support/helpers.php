@@ -57,15 +57,17 @@ if (! function_exists('mail_random')) {
 
 if (! function_exists('appUrl')) {
 
-    function appUrl(string $subdomain, string $path, bool $secure = true)
+    function appUrl(string $subdomain, ?string $path, bool $secure = true)
     {
         $protocol = $secure ? 'https' : 'http';
 
         $domain = config('app.domain');
         $domain = "{$subdomain}.{$domain}";
 
-        $path = ltrim($path, '/');
+        if (!empty($path)) {
+            $path = '/' . ltrim($path, '/');
+        }
 
-        return "{$protocol}://{$domain}/{$path}";
+        return "{$protocol}://{$domain}{$path}";
     }
 }
