@@ -57,7 +57,7 @@ if (! function_exists('mail_random')) {
 
 if (! function_exists('appUrl')) {
 
-    function appUrl(string $subdomain, ?string $path, bool $secure = true)
+    function appUrl(string $subdomain, ?string $path = null, bool $secure = true)
     {
         $protocol = $secure ? 'https' : 'http';
 
