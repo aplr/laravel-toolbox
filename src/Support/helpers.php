@@ -61,7 +61,7 @@ if (! function_exists('appUrl')) {
     {
         $protocol = $secure ? 'https' : 'http';
 
-        $domain = config('app.domain');
+        $domain = config('app.url_domain');
         $domain = "{$subdomain}.{$domain}";
 
         if (!empty($path)) {
