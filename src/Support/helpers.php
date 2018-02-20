@@ -44,6 +44,14 @@ if (! function_exists('api')) {
     }
 }
 
+if (! function_exists('apiEmpty')) {
+
+    function apiEmpty($status = 200)
+    {
+        return response(null, $status);
+    }
+}
+
 if (! function_exists('mail_random')) {
 
     function mail_random($tld = 'com')
@@ -57,7 +65,7 @@ if (! function_exists('mail_random')) {
 
 if (! function_exists('appUrl')) {
 
-    function appUrl(string $subdomain, ?string $path = null, bool $secure = true)
+    function appUrl(string $subdomain, ?string $path = null, ?mixed $query = null)
     {
         $protocol = $secure ? 'https' : 'http';
 
@@ -68,6 +76,10 @@ if (! function_exists('appUrl')) {
             $path = '/' . ltrim($path, '/');
         }
 
-        return "{$protocol}://{$domain}{$path}";
+        if (!empty($query)) {
+            $query = '?' . http_build_query($query);
+        }
+
+        return "{$protocol}://{$domain}{$path}{$query}";
     }
 }
