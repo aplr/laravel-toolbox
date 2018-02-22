@@ -14,8 +14,8 @@
     ],
     "require": {
         "php": ">=7.0",
-        "illuminate/database": "5.5.x",
-        "illuminate/support": "5.5.x"
+        "illuminate/database": "5.*",
+        "illuminate/support": "5.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0",
