@@ -2,9 +2,9 @@
 
 namespace Aplr\Toolbox;
 
-use Illuminate\Support\Facades\Facade as BaseFacade;
+use Illuminate\Support\Facades\Facade;
 
-class Facade extends BaseFacade {
+class Toolbox extends Facade {
     
     /**
      * Get the registered component.

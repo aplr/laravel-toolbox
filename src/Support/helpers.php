@@ -83,3 +83,11 @@ if (! function_exists('appUrl')) {
         return "{$protocol}://{$domain}{$path}{$query}";
     }
 }
+
+if (! function_exists('uniq')) {
+
+    function uniq(int $length = 10)
+    {
+        return app('uniq')->generate($length);
+    }
+}
