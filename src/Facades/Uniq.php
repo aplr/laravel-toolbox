@@ -1,6 +1,6 @@
 <?php 
 
-namespace Aplr\Toolbox;
+namespace Aplr\Toolbox\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

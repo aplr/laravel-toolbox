@@ -35,7 +35,8 @@
                 "Aplr\\Toolbox\\ServiceProvider"
             ],
             "aliases": {
-                "Toolbox": "Aplr\\Toolbox\\Facade"
+                "Toolbox": "Aplr\\Toolbox\\Facades\\Toolbox",
+                "Uniq": "Aplr\\Toolbox\\Facades\\Uniq"
             }
         }
     },
