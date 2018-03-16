@@ -65,12 +65,15 @@ if (! function_exists('mail_random')) {
 
 if (! function_exists('appUrl')) {
 
-    function appUrl(string $subdomain, ?string $path = null, ?mixed $query = null)
+    function appUrl(?string $subdomain, ?string $path = null, ?mixed $query = null)
     {
-        $protocol = $secure ? 'https' : 'http';
+        $protocol = config('app.secure') ? 'https' : 'http';
 
         $domain = config('app.url_domain');
-        $domain = "{$subdomain}.{$domain}";
+
+        if(!empty($subdomain)) {
+            $domain = "{$subdomain}.{$domain}";
+        }
 
         if (!empty($path)) {
             $path = '/' . ltrim($path, '/');
