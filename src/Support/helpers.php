@@ -65,11 +65,13 @@ if (! function_exists('mail_random')) {
 
 if (! function_exists('appUrl')) {
 
-    function appUrl(?string $subdomain, ?string $path = null, ?mixed $query = null)
+    function appUrl(?string $subdomain, ?string $path = null, $query = null)
     {
         $protocol = config('app.secure') ? 'https' : 'http';
 
         $domain = config('app.url_domain');
+
+        $queryString = null;
 
         if(!empty($subdomain)) {
             $domain = "{$subdomain}.{$domain}";
@@ -79,11 +81,15 @@ if (! function_exists('appUrl')) {
             $path = '/' . ltrim($path, '/');
         }
 
-        if (!empty($query)) {
-            $query = '?' . http_build_query($query);
+        if (is_array($query)) {
+            $queryString = '?' . http_build_query($query);
         }
 
-        return "{$protocol}://{$domain}{$path}{$query}";
+        if (is_string($query)) {
+            $queryString = '?' . $query;
+        }
+
+        return "{$protocol}://{$domain}{$path}{$queryString}";
     }
 }
 
