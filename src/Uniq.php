@@ -2,7 +2,7 @@
 
 namespace Aplr\Toolbox;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 class Uniq {
 
