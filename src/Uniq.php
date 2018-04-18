@@ -17,7 +17,7 @@ class Uniq {
     {
         $timestamp = round(microtime(true) * 1000);
         $machineId =  $this->generateMachineId();
-        $randomInt = random_int(0, 10e19);
+        $randomInt = random_int(0, PHP_INT_MAX);
         
         if (!is_null($this->config['machine_id'])) {
             $machineId = $this->config['machine_id'];
