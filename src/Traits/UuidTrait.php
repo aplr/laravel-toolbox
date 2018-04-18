@@ -16,7 +16,7 @@ trait UuidTrait
         return 'string';
     }
 
-    public static function bootIdentifiableTrait()
+    public static function bootUuidTrait()
     {
         self::creating(function ($model) {
             $keyName = $model->getKeyName();
