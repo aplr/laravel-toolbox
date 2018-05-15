@@ -20,6 +20,29 @@ if (! function_exists('urlify')) {
 
 }
 
+if (! function_exists('str_random_safe')) {
+
+    /**
+     * Creates a random string which does not contain vowels to avoid creating words.
+     *
+     * @param int $length
+     * @return string
+     */
+    function str_random_safe(int $length)
+    {
+        $alphabet = "bcdfghjklmnpqrstvwxyz0123456789";
+        $random = "";
+
+        while (strlen($random) < $length) {
+            $rand = random_int(0, strlen($alphabet) - 1);
+            $random .= $alphabet[$rand];
+        }
+
+        return $random;
+    }
+
+}
+
 if (! function_exists('apiError')) {
 
     function apiError(string $message, int $code)
