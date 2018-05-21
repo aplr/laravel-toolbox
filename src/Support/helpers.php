@@ -69,7 +69,7 @@ if (! function_exists('api')) {
 
 if (! function_exists('apiEmpty')) {
 
-    function apiEmpty($status = 200)
+    function apiEmpty($status = 204)
     {
         return response(null, $status);
     }
