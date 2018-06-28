@@ -23,7 +23,8 @@ if (! function_exists('urlify')) {
 if (! function_exists('str_random_safe')) {
 
     /**
-     * Creates a random string which does not contain vowels to avoid creating words.
+     * Creates a random string which does not
+     * contain vowels to avoid creating words.
      *
      * @param int $length
      * @return string
