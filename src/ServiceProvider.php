@@ -35,7 +35,7 @@ class ServiceProvider extends LaravelServiceProvider {
     protected function registerBladeDirectives()
     {
         Blade::directive('use', function ($expression) {
-            return "<?php echo use $expression; ?>";
+            return "<?php use $expression; ?>";
         });
     }
 
