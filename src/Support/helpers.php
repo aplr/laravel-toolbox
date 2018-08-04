@@ -110,7 +110,7 @@ if (! function_exists('appUrl')) {
     {
         $protocol = config('app.secure') ? 'https' : 'http';
 
-        $domain = appDomain(name);
+        $domain = appDomain($name);
 
         $queryString = null;
 
