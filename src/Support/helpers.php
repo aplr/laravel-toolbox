@@ -87,19 +87,32 @@ if (! function_exists('mail_random')) {
     }
 }
 
+if (! function_exists('appDomain')) {
+
+    function appDomain(string $name)
+    {
+        $domain = config('app.url_domain');
+
+        $prefixes = config('app.url_prefixes');
+
+        if (!empty($subdomain = $prefixes[$name])) {
+            return "{$subdomain}.{$domain}";
+        }
+
+        return $domain;
+    }
+
+}
+
 if (! function_exists('appUrl')) {
 
-    function appUrl(?string $subdomain, ?string $path = null, $query = null)
+    function appUrl(string $name, ?string $path = null, $query = null)
     {
         $protocol = config('app.secure') ? 'https' : 'http';
 
-        $domain = config('app.url_domain');
+        $domain = appDomain(name);
 
         $queryString = null;
-
-        if(!empty($subdomain)) {
-            $domain = "{$subdomain}.{$domain}";
-        }
 
         if (!empty($path)) {
             $path = '/' . ltrim($path, '/');
