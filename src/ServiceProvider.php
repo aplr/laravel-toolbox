@@ -7,6 +7,8 @@ use Illuminate\Contracts\Container\Container;
 
 use Illuminate\Support\Facades\Blade;
 
+use Doctrine\DBAL\Types\Type;
+
 class ServiceProvider extends LaravelServiceProvider {
     
     public function register()
@@ -23,6 +25,14 @@ class ServiceProvider extends LaravelServiceProvider {
         ]);
 
         $this->registerBladeDirectives();
+
+        $this->registerDbalTypes();
+    }
+
+    protected function registerDbalTypes()
+    {
+        Type::addType('uuid', \Aplr\Toolbox\Database\DBAL\UuidType::class);
+        Type::addType('char', \Aplr\Toolbox\Database\DBAL\CharType::class);
     }
 
     protected function registerToolbox()

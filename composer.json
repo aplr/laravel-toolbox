@@ -16,6 +16,7 @@
         "php": ">=7.0",
         "illuminate/database": "5.*",
         "illuminate/support": "5.*",
+        "doctrine/dbal": "^2.8",
         "ramsey/uuid": "^3.7"
     },
     "require-dev": {
