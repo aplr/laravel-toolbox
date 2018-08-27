@@ -31,8 +31,13 @@ class ServiceProvider extends LaravelServiceProvider {
 
     protected function registerDbalTypes()
     {
-        Type::addType('uuid', \Aplr\Toolbox\Database\DBAL\UuidType::class);
-        Type::addType('char', \Aplr\Toolbox\Database\DBAL\CharType::class);
+        if (!Type::hasType('uuid')) {
+            Type::addType('uuid', \Aplr\Toolbox\Database\DBAL\UuidType::class);
+        }
+
+        if (!Type::hasType('char')) {
+            Type::addType('char', \Aplr\Toolbox\Database\DBAL\CharType::class);
+        }
     }
 
     protected function registerToolbox()
