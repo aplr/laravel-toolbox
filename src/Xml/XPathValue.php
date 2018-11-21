@@ -8,11 +8,22 @@ class XPathValue {
 
     private $path;
     private $type;
+    private $namespaces;
 
     public function __construct(string $path, $type = null)
     {
         $this->path = $path;
         $this->type = $type;
+        $this->namespaces = collect();
+    }
+
+    public function namespace(array $mapping): XPathValue
+    {
+        collect($mapping)->each(function ($ns, $prefix) {
+            $this->namespaces->put($prefix, $ns);
+        });
+        
+        return $this;
     }
 
     public static function cast(string $path, $type = null)
