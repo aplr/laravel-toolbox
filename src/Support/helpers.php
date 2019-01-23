@@ -137,3 +137,11 @@ if (! function_exists('uniq')) {
         return app('uniq')->generate($length);
     }
 }
+
+if (! function_exists('sanitize_markdown')) {
+
+    function sanitize_markdown(string $text)
+    {
+        return preg_replace("/(#.+)(\R{1})(.+)/", "$1$2$2$3", $text);
+    }
+}
