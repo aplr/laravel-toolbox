@@ -142,6 +142,6 @@ if (! function_exists('sanitize_markdown')) {
 
     function sanitize_markdown(string $text)
     {
-        return preg_replace("/(#.+)(\R{1})(.+)/", "$1$2$2$3", $text);
+        return preg_replace("/(#.+)(\R|\R{2,})(.+)/", "$1\n\n$3", $text);
     }
 }
