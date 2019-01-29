@@ -19,8 +19,8 @@ class Uniq {
         $machineId =  $this->generateMachineId();
         $randomInt = random_int(0, PHP_INT_MAX);
         
-        if (!is_null($this->config['machine_id'])) {
-            $machineId = $this->config['machine_id'];
+        if (!is_null($this->config['uniq_machine_id'])) {
+            $machineId = $this->config['uniq_machine_id'];
         }
 
         $uniq = "{$timestamp}.{$machineId}.{$randomInt}";

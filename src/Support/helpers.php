@@ -145,3 +145,11 @@ if (! function_exists('sanitize_markdown')) {
         return preg_replace("/(#.+)(\R|\R{2,})(.+)/", "$1\n\n$3", $text);
     }
 }
+
+if (! function_exists('validate_username')) {
+
+    function validate_username(string $username)
+    {
+        return !collect(config('toolbox.username_blacklist'))->contains($username);
+    }
+}

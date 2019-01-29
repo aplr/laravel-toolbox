@@ -21,7 +21,7 @@ class ServiceProvider extends LaravelServiceProvider {
     public function boot()
     {
         $this->publishes([
-            $this->configPath() => config_path('uniq.php')
+            $this->configPath() => config_path('toolbox.php')
         ]);
 
         $this->registerBladeDirectives();
@@ -42,6 +42,8 @@ class ServiceProvider extends LaravelServiceProvider {
 
     protected function registerToolbox()
     {
+        $this->mergeConfigFrom($this->configPath(), 'toolbox');
+
         $this->app->singleton('toolbox', function (Container $app) {
             return new Toolbox;
         });
@@ -56,16 +58,14 @@ class ServiceProvider extends LaravelServiceProvider {
 
     protected function registerUniq()
     {
-        $this->mergeConfigFrom($this->configPath(), 'uniq');
-
         $this->app->singleton('uniq', function (Container $app) {
-            return new Uniq($app['config']['uniq']);
+            return new Uniq($app['config']['toolbox']);
         });
     }
     
     protected function configPath()
     {
-        return __DIR__ . '/../config/uniq.php';
+        return __DIR__ . '/../config/toolbox.php';
     }
     
     public function provides()
