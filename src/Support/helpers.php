@@ -158,6 +158,6 @@ if (! function_exists('properize')) {
 
     function properize(string $string)
     {
-        return "{$string}'" . (ends_with($string, 's') ? 's' : '');
+        return "{$string}'" . (ends_with($string, 's') ? '' : 's');
     }
 }
