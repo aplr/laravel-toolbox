@@ -153,3 +153,11 @@ if (! function_exists('validate_username')) {
         return !collect(config('toolbox.username_blacklist'))->contains($username);
     }
 }
+
+if (! function_exists('properize')) {
+
+    function properize(string $string)
+    {
+        return "{$string}'" . (ends_with($string, 's') ? 's' : '');
+    }
+}
