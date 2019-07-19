@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Aplr\Toolbox;
 
@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Blade;
 
 use Doctrine\DBAL\Types\Type;
 
-class ServiceProvider extends LaravelServiceProvider {
+class ServiceProvider extends LaravelServiceProvider
+{
     
     public function register()
     {
@@ -74,5 +75,4 @@ class ServiceProvider extends LaravelServiceProvider {
             'toolbox', 'uniq'
         ];
     }
-    
 }

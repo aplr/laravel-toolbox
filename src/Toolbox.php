@@ -2,9 +2,11 @@
 
 namespace Aplr\Toolbox;
 
-class Toolbox {
+class Toolbox
+{
 
-    public function publishMigrations(string $from, string $to) {
+    public function publishMigrations(string $from, string $to)
+    {
 
         $timestamp = date('Y_m_d_His', time());
 
@@ -13,9 +15,6 @@ class Toolbox {
             $file = pathinfo($stub);
 
             return [ "{$from}/{$stub}" => "{$to}/{$timestamp}_{$file['filename']}.php" ];
-
         })->all();
-
     }
-
 }

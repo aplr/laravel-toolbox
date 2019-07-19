@@ -1,10 +1,11 @@
-<?php 
+<?php
 
 namespace Aplr\Toolbox\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Uniq extends Facade {
+class Uniq extends Facade
+{
     
     /**
      * Get the registered component.
@@ -15,5 +16,4 @@ class Uniq extends Facade {
     {
         return 'uniq';
     }
-    
 }

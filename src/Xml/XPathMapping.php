@@ -4,7 +4,8 @@ namespace Aplr\Toolbox\Xml;
 
 use SimpleXMLElement;
 
-class XPathMapping {
+class XPathMapping
+{
 
     private $path;
     private $mapping;
@@ -91,9 +92,9 @@ class XPathMapping {
     {
         if ($path instanceof XPathMapping) {
             return $path->namespace($this->namespaces->toArray())->parse($element);
-        } else if ($path instanceof XPathValue) {
+        } elseif ($path instanceof XPathValue) {
             return $path->namespace($this->namespaces->toArray())->parse($element);
-        } else if (is_string($path)) {
+        } elseif (is_string($path)) {
             $items = collect($element->xpath($path))->map(function ($node) {
                 return $node->__toString();
             });
@@ -107,5 +108,4 @@ class XPathMapping {
 
         return null;
     }
-
 }

@@ -9,7 +9,8 @@ use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Validation\ValidationException;
 
-class ExceptionWrapper implements Arrayable, Jsonable, JsonSerializable {
+class ExceptionWrapper implements Arrayable, Jsonable, JsonSerializable
+{
 
     private $exception;
     private $message;
@@ -77,5 +78,4 @@ class ExceptionWrapper implements Arrayable, Jsonable, JsonSerializable {
     {
         return json_encode($this->jsonSerialize(), $options);
     }
-
 }

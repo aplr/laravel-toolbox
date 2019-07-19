@@ -4,7 +4,8 @@ namespace Aplr\Toolbox\Xml;
 
 use SimpleXMLElement;
 
-class XPathValue {
+class XPathValue
+{
 
     private $path;
     private $type;
@@ -35,7 +36,7 @@ class XPathValue {
     {
         $result = $xml->xpath($this->path);
 
-        if ( !(count($result) > 0) ) {
+        if (!(count($result) > 0)) {
             return null;
         }
 
@@ -52,5 +53,4 @@ class XPathValue {
 
         return $value;
     }
-
 }

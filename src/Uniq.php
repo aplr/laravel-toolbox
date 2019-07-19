@@ -4,7 +4,8 @@ namespace Aplr\Toolbox;
 
 use Illuminate\Support\Facades\Request;
 
-class Uniq {
+class Uniq
+{
 
     private $config;
 
@@ -36,5 +37,4 @@ class Uniq {
         
         return hash('sha1', $ip);
     }
-
 }
