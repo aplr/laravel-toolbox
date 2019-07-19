@@ -14,9 +14,10 @@
     ],
     "require": {
         "php": ">=7.2",
+        "doctrine/dbal": "^2.8",
         "illuminate/database": "5.*",
         "illuminate/support": "5.*",
-        "doctrine/dbal": "^2.8",
+        "lukasoppermann/http-status": "^2.0",
         "ramsey/uuid": "^3.7"
     },
     "require-dev": {

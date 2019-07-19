@@ -5,6 +5,7 @@ namespace Aplr\Toolbox\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
+use Lukasoppermann\Httpstatus\Httpstatus as HttpStatus;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class ApiHandler extends ExceptionHandler
@@ -47,6 +48,29 @@ class ApiHandler extends ExceptionHandler
             return [ 'message' => $e->getMessage() ];
         }
         
-        return parent::convertExceptionToArray($e);
+        $data = parent::convertExceptionToArray($e);
+
+        if ($e instanceof HttpException && empty($data['message'])) {
+            $data['message'] = $this->convertStatusCodeToMessage($e->getStatusCode());
+        }
+
+        return $data;
+    }
+
+    /**
+     * Returns the reason phrase for a given HTTP status code
+     *
+     * @param integer $statusCode
+     * @return string
+     */
+    protected function convertStatusCodeToMessage(int $statusCode): string
+    {
+        $status = new HttpStatus();
+
+        if ($status->hasStatusCode($statusCode)) {
+            return $status->getReasonPhrase($statusCode);
+        }
+
+        return 'Server Error';
     }
 }
