@@ -13,7 +13,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="Azkaban Test Suite">
+        <testsuite name="Toolbox Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
